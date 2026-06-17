@@ -9,11 +9,11 @@ import { createMetadata } from "@/src/lib/seo";
 import { siteConfig } from "@/src/lib/constants";
 
 export const metadata: Metadata = createMetadata({
-  title: "Elara Stays — Best Resorts in Wayanad | Book via WhatsApp",
+  title: "Elara Stays Wayanad | Luxury Resort in Wayanad Kerala | Family, Couples & Group Stay",
   description:
-    "Elara Stays — Discover the best resorts in Wayanad for families, couples, and groups. Budget resorts, luxury villas, pool resorts, honeymoon stays. Enquire on WhatsApp for rates and availability.",
+    "Experience Elara Stays Wayanad, a luxury nature resort in Kerala offering comfortable accommodation for families, couples, friends and groups. Enjoy scenic mountain views, peaceful surroundings and a memorable Wayanad vacation.",
   path: "/",
-  keywords: ["elara stays booking", "wayanad resort whatsapp booking", "best wayanad resorts 2025"],
+  keywords: ["elara stays booking"],
 });
 
 export default function Home() {

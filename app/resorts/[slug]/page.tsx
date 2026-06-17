@@ -6,7 +6,7 @@ import JsonLd from "@/src/components/JsonLd";
 import WhatsappForm from "@/src/components/WhatsappForm";
 import { resorts } from "@/src/data/resorts";
 import { createMetadata } from "@/src/lib/seo";
-import { absoluteUrl, whatsappUrl } from "@/src/lib/constants";
+import { absoluteUrl, whatsappUrl, getCategoryFromImage } from "@/src/lib/constants";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,12 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const resort = resorts.find((item) => item.slug === slug);
   if (!resort) return {};
+  const categoryName = getCategoryFromImage(resort.images[0], resort.category);
   return createMetadata({
-    title: `${resort.name} | ${resort.category} in Wayanad`,
+    title: `${resort.name} | ${categoryName} in Wayanad`,
     description: `${resort.description} Enquire for availability, rates, and Wayanad resort booking support on WhatsApp.`,
     path: `/resorts/${resort.slug}`,
     image: resort.images[0],
-    keywords: [resort.category.toLowerCase(), resort.location.toLowerCase()],
+    keywords: [categoryName.toLowerCase(), resort.location.toLowerCase()],
   });
 }
 
@@ -54,7 +55,9 @@ export default async function ResortDetails({ params }: Props) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-[#0B3F3A]/90" />
         <div className="relative mx-auto flex min-h-[calc(78vh-6rem)] max-w-7xl items-end px-4 py-14 md:px-6">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full bg-white/15 px-4 py-2 text-sm font-bold backdrop-blur">{resort.category}</p>
+            <p className="inline-flex rounded-full bg-white/15 px-4 py-2 text-sm font-bold backdrop-blur">
+              {getCategoryFromImage(resort.images[0], resort.category)}
+            </p>
             <h1 className="mt-5 text-4xl font-bold leading-tight md:text-6xl">{resort.name}</h1>
             <p className="mt-4 flex items-center gap-2 text-white/85"><FaLocationDot aria-hidden /> {resort.location}</p>
             <div className="mt-6 flex flex-wrap gap-3">
