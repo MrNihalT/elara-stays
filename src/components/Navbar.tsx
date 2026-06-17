@@ -48,10 +48,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/25 bg-[#0B3F3A]/80 shadow-sm backdrop-blur-xl">
-      <div className="absolute inset-0 -z-10 overflow-hidden opacity-20">
-        <Image src="/hero2.png" alt="" fill className="object-cover" sizes="100vw" />
-      </div>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/25 bg-[#0B3F3A]/90 shadow-sm backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6" aria-label="Primary navigation">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <span className="relative h-12 w-12 overflow-hidden rounded-full border border-white/35 bg-white">
