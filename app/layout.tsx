@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import Navbar from "@/src/components/Navbar";
 import Footer from "@/src/components/Footer";
 import ScrollProgress from "@/src/components/ScrollProgress";
@@ -58,21 +57,22 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+  }>) {
   return (
     <html lang="en-IN">
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-N7SLKM0RKG"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-N7SLKM0RKG');
-        `}
-      </Script>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-N7SLKM0RKG" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-N7SLKM0RKG');
+            `,
+          }}
+        />
+      </head>
       <body>
         <SiteLoader />
         <ScrollProgress />
