@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-white/60">
-        © 2026 Elara Stays. Started by Shilby in 2023. Developed by{" "}
+        © 2026 Elara Stays. Developed and maintained by{" "}
         <a href="https://nihalt.in" target="_blank" rel="noreferrer" className="font-bold text-[#D4AF37]">
           Nihalt
         </a>
