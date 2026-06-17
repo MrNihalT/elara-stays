@@ -57,7 +57,7 @@ export default function Home() {
                 addressCountry: "IN",
               },
               sameAs: [siteConfig.instagram, siteConfig.url],
-              image: `${siteConfig.url}/hero.webp`,
+              image: `${siteConfig.url}/hero2.png`,
               logo: `${siteConfig.url}/Logo.jpg`,
             },
             {

@@ -50,7 +50,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/25 bg-[#0B3F3A]/80 shadow-sm backdrop-blur-xl">
       <div className="absolute inset-0 -z-10 opacity-20">
-        <Image src="/hero.webp" alt="" fill className="object-cover" sizes="100vw" />
+        <Image src="/hero2.png" alt="" fill className="object-cover" sizes="100vw" />
       </div>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6" aria-label="Primary navigation">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
@@ -77,7 +77,7 @@ export default function Navbar() {
             href={whatsappUrl()}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex h-11 items-center gap-2 rounded-full bg-[#D4AF37] px-4 text-sm font-bold text-[#1F2937] shadow-lg shadow-emerald-900/15 transition hover:bg-[#e4c45f]"
+            className="inline-flex h-11 items-center gap-2 rounded-full bg-[#0F766E] px-4 text-sm font-bold text-white shadow-lg shadow-emerald-900/15 transition hover:bg-[#0D625C]"
           >
             <FaWhatsapp aria-hidden />
             <span className="hidden sm:inline">Book on WhatsApp</span>

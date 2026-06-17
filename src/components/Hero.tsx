@@ -58,7 +58,7 @@ export default function Hero() {
                             href={whatsappUrl()}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex h-13 items-center justify-center gap-3 rounded-full bg-[#D4AF37] px-6 font-bold text-[#1F2937] shadow-xl shadow-black/20"
+                            className="inline-flex h-13 items-center justify-center gap-3 rounded-full bg-[#0F766E] px-6 font-bold text-white shadow-xl shadow-black/20 transition hover:bg-[#0D625C]"
                         >
                             <FaWhatsapp aria-hidden /> Check Availability
                         </a>

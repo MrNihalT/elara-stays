@@ -71,7 +71,7 @@ export default function WhatsappForm() {
             <input className={inputClass} type="number" min="0" placeholder="Kids (Below 6 yrs)" value={form.kidsBelow6} onChange={(event) => setForm({ ...form, kidsBelow6: event.target.value })} />
             <textarea className={`${inputClass} min-h-28 sm:col-span-2`} placeholder="Any Special Requests or Requirements" value={form.requests} onChange={(event) => setForm({ ...form, requests: event.target.value })} />
           </div>
-          <button type="submit" className="mt-5 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#D4AF37] px-6 py-4 font-bold text-[#1F2937]">
+          <button type="submit" className="mt-5 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#0F766E] px-6 py-4 font-bold text-white transition hover:bg-[#0D625C]">
             <FaWhatsapp aria-hidden /> Open WhatsApp
           </button>
         </form>

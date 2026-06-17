@@ -22,7 +22,7 @@ export default function SiteLoader() {
           transition={{ duration: 0.55, ease: "easeInOut" }}
         >
           <div className="absolute inset-0 opacity-25">
-            <Image src="/hero.webp" alt="" fill priority className="object-cover" sizes="100vw" />
+            <Image src="/hero2.png" alt="" fill priority className="object-cover" sizes="100vw" />
           </div>
           <div className="absolute inset-0 bg-[#0B3F3A]/75" />
           <motion.div

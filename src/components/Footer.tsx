@@ -12,7 +12,7 @@ export default function Footer() {
             Luxury-minded Wayanad resort discovery for families, couples, groups, and honeymoon travelers. Send your dates and get handpicked stay options on WhatsApp.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#D4AF37] px-5 py-3 text-sm font-bold text-[#1F2937]">
+            <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#0F766E] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#0D625C]">
               <FaWhatsapp aria-hidden /> WhatsApp Enquiry
             </a>
             <a href="tel:+919656938417" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-bold">
