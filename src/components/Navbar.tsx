@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { FaBars, FaWhatsapp, FaXmark } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa6";
 import { whatsappUrl } from "@/src/lib/constants";
 import WeatherBadge from "./WeatherBadge";
 
@@ -16,11 +16,39 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
+/** Animated hamburger → X button */
+function MenuToggle({ open, onClick }: { open: boolean; onClick: () => void }) {
+  const barBase =
+    "block absolute left-1/2 h-[2px] w-5 -translate-x-1/2 rounded-full bg-white transition-all duration-300 ease-in-out";
+
+  return (
+    <button
+      type="button"
+      aria-label="Toggle menu"
+      aria-expanded={open}
+      onClick={onClick}
+      className="relative grid h-11 w-11 place-items-center rounded-full border border-white/25 bg-white/15 text-white lg:hidden"
+    >
+      <span className="relative block h-5 w-5">
+        <span
+          className={`${barBase} ${open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-[3px]"}`}
+        />
+        <span
+          className={`${barBase} top-1/2 -translate-y-1/2 ${open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"}`}
+        />
+        <span
+          className={`${barBase} ${open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-[3px]"}`}
+        />
+      </span>
+    </button>
+  );
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 overflow-hidden border-b border-white/25 bg-[#0B3F3A]/80 shadow-sm backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/25 bg-[#0B3F3A]/80 shadow-sm backdrop-blur-xl">
       <div className="absolute inset-0 -z-10 opacity-20">
         <Image src="/hero.webp" alt="" fill className="object-cover" sizes="100vw" />
       </div>
@@ -54,33 +82,34 @@ export default function Navbar() {
             <FaWhatsapp aria-hidden />
             <span className="hidden sm:inline">Book on WhatsApp</span>
           </a>
-          <button
-            type="button"
-            aria-label="Toggle menu"
-            onClick={() => setOpen((value) => !value)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-white/25 bg-white/15 text-white lg:hidden"
-          >
-            {open ? <FaXmark aria-hidden /> : <FaBars aria-hidden />}
-          </button>
+          <MenuToggle open={open} onClick={() => setOpen((v) => !v)} />
         </div>
       </nav>
 
-      {open ? (
-        <div className="border-t border-white/10 bg-[#0B3F3A] px-4 py-4 shadow-lg lg:hidden">
-          <div className="mx-auto grid max-w-7xl gap-2">
-            {links.map((link) => (
+      {/* Mobile menu with smooth slide animation */}
+      <div
+        className={`grid overflow-hidden border-t border-white/10 bg-[#0B3F3A] shadow-lg transition-[grid-template-rows,opacity] duration-300 ease-in-out lg:hidden ${
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="mx-auto grid max-w-7xl gap-1 px-4 py-4">
+            {links.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-2xl px-4 py-3 text-sm font-semibold text-white hover:bg-white/10"
+                className="rounded-2xl px-4 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/10"
+                style={{
+                  animationDelay: open ? `${i * 50}ms` : "0ms",
+                }}
               >
                 {link.label}
               </Link>
             ))}
           </div>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }

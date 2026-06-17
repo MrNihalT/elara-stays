@@ -27,15 +27,15 @@ export const metadata: Metadata = {
       "Elara Stays helps you find and enquire for premium, family, budget, pool, and honeymoon resorts in Wayanad via WhatsApp.",
     url: siteConfig.url,
     siteName: "Elara Stays",
-    images: [{ url: "/hero.webp", width: 1200, height: 630, alt: "Elara Stays — Wayanad resorts hero" }],
+    images: [{ url: "/Logo.jpg", width: 512, height: 512, alt: "Elara Stays logo" }],
     locale: "en_IN",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Elara Stays — Wayanad Resort Booking",
     description: "WhatsApp-first Wayanad resort enquiry by Elara Stays for families, couples, and groups.",
-    images: ["/hero.webp"],
+    images: ["/Logo.jpg"],
   },
   robots: {
     index: true,

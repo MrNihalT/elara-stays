@@ -23,12 +23,55 @@ export default function Home() {
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          "@type": "TravelAgency",
-          name: siteConfig.name,
-          url: siteConfig.url,
-          telephone: siteConfig.phoneDisplay,
-          areaServed: "Wayanad, Kerala",
-          sameAs: [siteConfig.url],
+          "@graph": [
+            {
+              "@type": "WebSite",
+              name: "Elara Stays",
+              alternateName: ["elarastays", "Elara Stays Wayanad"],
+              url: siteConfig.url,
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: `${siteConfig.url}/resorts?q={search_term_string}`,
+                },
+                "query-input": "required name=search_term_string",
+              },
+            },
+            {
+              "@type": "TravelAgency",
+              name: "Elara Stays",
+              url: siteConfig.url,
+              telephone: `+91${siteConfig.phoneDisplay}`,
+              email: siteConfig.email,
+              description:
+                "Elara Stays is a WhatsApp-first Wayanad resort discovery and booking enquiry service for families, couples, and groups.",
+              areaServed: {
+                "@type": "Place",
+                name: "Wayanad, Kerala, India",
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Wayanad",
+                addressRegion: "Kerala",
+                addressCountry: "IN",
+              },
+              sameAs: [siteConfig.instagram, siteConfig.url],
+              image: `${siteConfig.url}/hero.webp`,
+              logo: `${siteConfig.url}/Logo.jpg`,
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: siteConfig.url,
+                },
+              ],
+            },
+          ],
         }}
       />
       <Hero />
