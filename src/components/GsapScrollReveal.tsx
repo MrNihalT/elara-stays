@@ -10,6 +10,22 @@ export default function GsapScrollReveal() {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
 
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (isMobile) {
+      // Only keep the hero parallax effect, skip heavy scroll reveal triggers
+      gsap.to(".hero-float", {
+        yPercent: 8,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".hero-section",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+      return;
+    }
+
     const items = gsap.utils.toArray<HTMLElement>(".gsap-reveal");
 
     items.forEach((item) => {

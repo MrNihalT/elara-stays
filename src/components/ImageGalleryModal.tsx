@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight, FaXmark } from "react-icons/fa6";
 
@@ -20,6 +21,12 @@ export default function ImageGalleryModal({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  // Set mounted on client
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Reset index when modal opens
   useEffect(() => {
@@ -90,18 +97,16 @@ export default function ImageGalleryModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, images.length, onClose]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 p-4 backdrop-blur-md transition-opacity duration-300"
       onClick={onClose}
     >
-      {/* Header */}
       <div className="absolute top-0 left-0 right-0 flex items-center justify-between p-4 md:p-6 text-white z-10 bg-gradient-to-b from-black/60 to-transparent">
         <div>
-          <h3 className="text-lg font-bold md:text-xl">{title}</h3>
-          <p className="text-xs text-white/60 mt-1">
+          <p className="text-sm font-semibold text-white/85">
             Image {currentIndex + 1} of {images.length}
           </p>
         </div>
@@ -188,6 +193,7 @@ export default function ImageGalleryModal({
           ))}
         </div>
       )}
-    </div>
+    </div>,
+    document.body
   );
 }
