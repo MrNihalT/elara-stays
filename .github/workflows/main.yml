@@ -1,4 +1,4 @@
-name: React CI
+name: Next.js CI
 
 on:
   push:
@@ -10,24 +10,29 @@ on:
   
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      - name: Run ESLint
-        run: npm run lint
+      - run: npm run lint
+  build:
+    needs: lint
+    runs-on: ubuntu-latest
 
-      - name: Build project
-        run: npm run build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
