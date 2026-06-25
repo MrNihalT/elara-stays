@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState, useEffect } from "react";
-import { FaWhatsapp, FaCalendarDays, FaBed, FaUserGroup, FaXmark } from "react-icons/fa6";
+import { FaWhatsapp, FaCalendarDays, FaBed, FaXmark } from "react-icons/fa6";
 import { whatsappUrl } from "@/src/lib/constants";
 
 const initialForm = {
@@ -136,7 +136,7 @@ export default function FloatingEnquiryWidget() {
                   <option value="">Group Type?</option>
                   <option>Family</option>
                   <option>Couple</option>
-                  <option>Bachelor's</option>
+                  <option>{"Bachelor's"}</option>
                   <option>Friends Group</option>
                 </select>
 

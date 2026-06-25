@@ -6,6 +6,7 @@ import SiteLoader from "@/src/components/SiteLoader";
 import FloatingEnquiryWidget from "@/src/components/FloatingEnquiryWidget";
 import { siteConfig } from "@/src/lib/constants";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -61,19 +62,6 @@ export default function RootLayout({
   }>) {
   return (
     <html lang="en-IN">
-      <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-N7SLKM0RKG" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-N7SLKM0RKG');
-            `,
-          }}
-        />
-      </head>
       <body>
         <SiteLoader />
         <ScrollProgress />
@@ -82,6 +70,7 @@ export default function RootLayout({
         <Footer />
         <FloatingEnquiryWidget />
       </body>
+      <GoogleAnalytics gaId="G-N7SLKM0RKG" />
     </html>
   );
 }

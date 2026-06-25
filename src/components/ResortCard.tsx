@@ -68,12 +68,14 @@ export default function ResortCard({ resort }: { resort: Resort }) {
       </FadeIn>
 
       {/* Lightbox Gallery Modal */}
-      <ImageGalleryModal
-        isOpen={isGalleryOpen}
-        onClose={() => setIsGalleryOpen(false)}
-        images={resort.images}
-        title={resort.name}
-      />
+      {isGalleryOpen && (
+        <ImageGalleryModal
+          isOpen={isGalleryOpen}
+          onClose={() => setIsGalleryOpen(false)}
+          images={resort.images}
+          title={resort.name}
+        />
+      )}
     </>
   );
 }

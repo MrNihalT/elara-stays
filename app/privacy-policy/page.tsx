@@ -25,14 +25,14 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-bold text-[#1F2937] mb-2">2. Use of Information</h2>
             <p>
-              The collected enquiry details are structured into a message draft and forwarded through your device's WhatsApp application to our booking team. We use this information solely to process your resort enquiry, verify availability, compile rates, and send you suitable lodging recommendations in Wayanad.
+              {"The collected enquiry details are structured into a message draft and forwarded through your device's WhatsApp application to our booking team. We use this information solely to process your resort enquiry, verify availability, compile rates, and send you suitable lodging recommendations in Wayanad."}
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-[#1F2937] mb-2">3. Third-Party Interactions</h2>
             <p>
-              We value your trust and do not sell, trade, or distribute your personal details to outside third parties. Because our communication occurs via WhatsApp, all interactions are subject to WhatsApp's official privacy policy, end-to-end encryption protocols, and standard terms of service.
+              {"We value your trust and do not sell, trade, or distribute your personal details to outside third parties. Because our communication occurs via WhatsApp, all interactions are subject to WhatsApp's official privacy policy, end-to-end encryption protocols, and standard terms of service."}
             </p>
           </section>
 

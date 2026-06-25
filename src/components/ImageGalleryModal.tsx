@@ -21,25 +21,13 @@ export default function ImageGalleryModal({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  // Set mounted on client
+  // Prevent background scrolling while open
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Reset index when modal opens
-  useEffect(() => {
-    if (isOpen) {
-      setCurrentIndex(0);
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, []);
 
   const handleNext = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -97,7 +85,7 @@ export default function ImageGalleryModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, images.length, onClose]);
 
-  if (!isOpen || !mounted) return null;
+  if (!isOpen || typeof window === "undefined") return null;
 
   return createPortal(
     <div
