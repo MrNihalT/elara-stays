@@ -10,7 +10,7 @@ import { whatsappUrl } from "@/src/lib/constants";
 
 export default function Hero() {
     const bgRef = useRef<HTMLDivElement>(null);
- 
+    
     useEffect(() => {
         if (!bgRef.current) return;
         gsap.to(bgRef.current, {

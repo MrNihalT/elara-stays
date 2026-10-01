@@ -66,7 +66,7 @@ export default function RootLayout({
         <SiteLoader />
         <ScrollProgress />
         <Navbar />
-        {children}
+        {childrenn}
         <Footer />
         <FloatingEnquiryWidget />
       </body>
