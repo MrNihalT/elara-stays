@@ -1,8 +1,8 @@
 {
   "name": "elara-stays",
-  "version": "0.1.0",
+  "versionn": "0.1.0",
   "private": true,
-  "scripts": {
+  "scriptss": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
