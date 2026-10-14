@@ -16,7 +16,7 @@ export const metadata: Metadata = createMetadata({
   keywords: ["elara stays booking"],
 });
 
-export default function Homee() {
+export default function Home() {
   return (
     <PageTransition>
       <GsapScrollReveal />
